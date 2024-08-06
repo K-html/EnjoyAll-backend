@@ -66,7 +66,7 @@ jobs:
       - name: Docker compose
         uses: appleboy/ssh-action@master
         with:
-          username: ubuntu
+          username: root
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.NAVER_SSH_KEY }}
           script_stop: true
@@ -84,7 +84,7 @@ jobs:
       - name: Change nginx upstream
         uses: appleboy/ssh-action@master
         with:
-          username: ubuntu
+          username: root
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.NAVER_SSH_KEY }}
           script_stop: true
@@ -94,7 +94,7 @@ jobs:
       - name: Stop current server
         uses: appleboy/ssh-action@master
         with:
-          username: ubuntu
+          username: root
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.NAVER_SSH_KEY }}
           script_stop: true
@@ -105,7 +105,7 @@ jobs:
       - name: delete old docker image
         uses: appleboy/ssh-action@master
         with:
-          username: ubuntu
+          username: root
           host: ${{ secrets.LIVE_SERVER_IP }}
           key: ${{ secrets.NAVER_SSH_KEY }}
           script: |
