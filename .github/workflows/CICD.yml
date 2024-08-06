@@ -101,3 +101,17 @@ jobs:
           script: |
             sudo docker stop ${{env.CURRENT_UPSTREAM}}
             sudo docker rm ${{env.CURRENT_UPSTREAM}}
+            
+      - name: delete old docker image
+        uses: appleboy/ssh-action@master
+        with:
+          username: ubuntu
+          host: ${{ secrets.LIVE_SERVER_IP }}
+          key: ${{ secrets.NAVER_SSH_KEY }}
+          script: |
+            dangling_images=$(sudo docker images -f "dangling=true" -q)
+            if [ ! -z "$dangling_images" ]; then
+              sudo docker rmi $dangling_images
+            else
+              echo "No dangling images found"
+            fi
