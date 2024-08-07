@@ -23,7 +23,8 @@ jobs:
       - name: Decode and verify
         run: |
           echo "Decoding DATABASE secret"
-          echo "${{ secrets.SECRET }}" | base64 -d > ./src/main/resources/application-secret-deploy.yml"
+          echo "${{ secrets.SECRET }}" | base64 -d > ./src/main/resources/application-secret-deploy.yml
+
 
       - name: Build with Gradle
         run: |
