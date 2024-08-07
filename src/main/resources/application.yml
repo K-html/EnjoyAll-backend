@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local
+    active: blue
     group:
       local: local, common, secret-dev
       blue: blue, common, secret-deploy
