@@ -41,7 +41,9 @@ jobs:
       - name: Build Docker
         if: github.event_name == 'push'
         run: docker build --platform linux/amd64 -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }} .
+
       - name: Push Docker
+        if: github.event_name == 'push'
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO_NAME }}:latest
 
   deploy:
