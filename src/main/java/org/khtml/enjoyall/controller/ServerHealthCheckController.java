@@ -1,4 +1,4 @@
-package org.khtml.enjoyall;
+package org.khtml.enjoyall.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
