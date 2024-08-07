@@ -20,10 +20,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Decode and verify
+      - name: Decrypt SECRET_YML to create a secret file
         run: |
-          echo "Decoding DATABASE secret"
-          echo "${{ secrets.SECRET }}" | base64 -d > ./src/main/resources/application-secret-deploy.yml
+          echo "Decoding SECRET_YML secret"
+          echo "${{ secrets.SECRET_YML }}" | base64 -d > ./src/main/resources/application-secret-deploy.yml
 
 
       - name: Build with Gradle
